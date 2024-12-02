@@ -1,9 +1,12 @@
 #!/bin/bash
-
+#color variables
+RESET='\033[0m'
+GREEN='\033[32m'
+RED='\033[31m'
 block_websites() {
 # Check if the script is run as root
 if [ "$(id -u)" -ne 0 ]; then
-    echo "Please run this script as root."
+    echo -e "${RED}Please run this script as root.${RESET}"
     exit 1
 fi
 
@@ -15,11 +18,11 @@ if ! grep -q "$site" /etc/hosts; then
 	echo "127.0.0.1 $site" | tee -a /etc/hosts > /dev/null
 	echo "Blocked: $site"
 else
-	echo "$site is already blocked."
+	echo -e "${GREEN}$site is already blocked.${RESET}"
 fi
 
 
-echo "Websites blocked successfully."
+echo -e "${GREEN}Websites blocked successfully.${RESET}"
 }
 
 unblock_websites() {
@@ -35,10 +38,10 @@ if grep -q "$bsite" /etc/hosts; then
 	sed -i "/$bsite/d" /etc/hosts
 	echo "Unblocked: $site"
 else
-	echo "$site is not blocked."
+	echo -e "${GREEN}$site is not blocked.${RESET}"
 fi
 
-echo "Websites unblocked successfully."
+echo -e "${RED}Websites unblocked successfully.${RESET}"
 
 }
 
