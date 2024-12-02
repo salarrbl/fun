@@ -25,3 +25,12 @@ unblock
 ```bash
   sudo ./blocker.sh unblock www.xnxx.com
 ```
+
+Optional
+```
+  sudo cp index.html /var/www/html/ 
+```
+``` 
+  sudo systemctl reload apache2
+```
+
