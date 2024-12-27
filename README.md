@@ -37,6 +37,10 @@ Optional
 
 use example
 ```
+	sudo apt install mpg123
+	sudo pacman -S mpg123	
+```
+```
 	chmod +x play.sh
 	./play.sh https://songsara.net/134026/
 ```
